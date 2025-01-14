@@ -54,6 +54,7 @@ public class AuthorizationServerConfig {
     private final OidcUserInfoService userInfoService;
     private final AuthorizationServerProperties properties;
     private final PasswordEncoder encoder;
+    private static final String SCOPE_OFFLINE_ACCESS = "offline_access";
     private static final String CLIENT_SECRET = "secret";
 
     public AuthorizationServerConfig(OidcUserInfoService userInfoService, AuthorizationServerProperties properties, PasswordEncoder encoder) {
@@ -123,6 +124,7 @@ public class AuthorizationServerConfig {
                 .redirectUri("http://127.0.0.1:8080/login/oauth2/code/gateway")
                 .scope(OidcScopes.OPENID)
                 .scope(OidcScopes.PROFILE)
+                .scope(SCOPE_OFFLINE_ACCESS)
                 .scope("message.read")
                 .scope("message.write")
                 .build();

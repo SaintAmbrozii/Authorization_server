@@ -18,7 +18,8 @@ public class ResourceServerConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/messages/**").hasAnyAuthority("SCOPE_message.read","SCOPE_message.write")
+                        .requestMatchers("/messages/**")
+                        .hasAnyAuthority("SCOPE_message.read","SCOPE_message.write","offline_access")
 
                         .anyRequest().authenticated()
                 )
