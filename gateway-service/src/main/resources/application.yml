@@ -10,13 +10,23 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: resource
-          uri: http://127.0.0.1:8090
+        - id: messages
+          uri: http://127.0.0.1:8070
           predicates:
-            - Path=/resource
+            - Path=/messages/**
           filters:
             - TokenRelay=
             - RemoveRequestHeader=Cookie
+        - id: resource
+          uri: http://127.0.0.1:8090
+          predicates:
+             - Path=/resource/**
+          filters:
+            - TokenRelay=
+            - RemoveRequestHeader=Cookie
+
+
+
   security:
     oauth2:
       client:
@@ -26,7 +36,7 @@ spring:
             client-id: gateway
             client-secret: secret
             authorization-grant-type: authorization_code
-            redirect-uri: "http://127.0.0.1:8080/login/oauth2/code/gateway"
+            redirect-uri: "http://127.0.0.1:8080/login/oauth2/code/{registrationId}"
             scope: openid,profile,message.read,message.write
         provider:
           spring:

@@ -29,6 +29,7 @@ public class OidcUserInfoService {
                 .email(user.getEmail())
                 .emailVerified(true)
                 .claim("roles", user.getAuthorities())
+                .claim("id",user.getId())
                 .zoneinfo("Europe/Berlin")
                 .locale("de-DE")
                 .updatedAt("1970-01-01T00:00:00Z")

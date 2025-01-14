@@ -1,9 +1,9 @@
 server:
-  port: 8090
+  port: 8070
 
 spring:
   application:
-    name: resource
+    name: messages
   security:
     oauth2:
       resourceserver:
