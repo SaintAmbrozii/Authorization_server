@@ -18,7 +18,7 @@ public class OidcUserInfoService {
     public OidcUserInfo getUserInfo(String username) {
         User user = userDetailService.loadUserByUsername(username);
         return OidcUserInfo.builder()
-                .subject(user.getId().toString())
+                .subject(String.valueOf(user.getId()))
                 .name(user.getName())
                 .givenName(user.getLastname())
                 .familyName(user.getSurname())

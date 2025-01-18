@@ -2,9 +2,12 @@ package com.example.authservice.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.redis.core.RedisHash;
+import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
@@ -19,7 +22,6 @@ import java.util.Set;
 @Table(name = "users",schema = "public")
 @ToString
 public class User implements UserDetails, Serializable {
-
 
 
     @Id

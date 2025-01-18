@@ -47,7 +47,8 @@ public class DefaultSecurityConfig {
                                 .permitAll()
                                 .requestMatchers("/api/users/**").permitAll()
                                 .anyRequest().authenticated()
-                ).formLogin(Customizer.withDefaults());
+                )
+                .formLogin(Customizer.withDefaults());
 
 
         return http.build();

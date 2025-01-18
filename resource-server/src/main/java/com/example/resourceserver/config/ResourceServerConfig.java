@@ -33,6 +33,7 @@ public class ResourceServerConfig {
                 )
 
         .oauth2ResourceServer(oauth->oauth.jwt(Customizer.withDefaults()));
+
         return http.build();
     }
 
